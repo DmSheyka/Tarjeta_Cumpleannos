@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     ImgFelicitacion(
                         mensaje = getString(R.string.texto_feliz_cumpleannos),
-                        from = getString(R.string.texto_asignacion)
+                        de = getString(R.string.texto_asignacion)
                     )
                     //Greeting("Android")
                 }
@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TextoFelicitacion(mensaje: String, from: String, modifier: Modifier = Modifier){
+fun TextoFelicitacion(mensaje: String, de: String, modifier: Modifier = Modifier){
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier
@@ -58,7 +58,7 @@ fun TextoFelicitacion(mensaje: String, from: String, modifier: Modifier = Modifi
             textAlign = TextAlign.Center
         )
         Text(
-            text = from,
+            text = de,
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
@@ -68,8 +68,9 @@ fun TextoFelicitacion(mensaje: String, from: String, modifier: Modifier = Modifi
         )
     }
 }
+
 @Composable
-fun ImgFelicitacion(mensaje: String, from: String, modifier: Modifier = Modifier) {
+fun ImgFelicitacion(mensaje: String, de: String, modifier: Modifier = Modifier) {
     val img = painterResource(R.drawable.androidparty)
     Box {
         Image(
@@ -80,7 +81,7 @@ fun ImgFelicitacion(mensaje: String, from: String, modifier: Modifier = Modifier
         )
         TextoFelicitacion(
             mensaje = mensaje,
-            from = from,
+            de = de,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp)
@@ -88,14 +89,13 @@ fun ImgFelicitacion(mensaje: String, from: String, modifier: Modifier = Modifier
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun TarjetaFelizCumplaennos() {
     FelizCumpleañosTheme {
         ImgFelicitacion(
             mensaje = stringResource(R.string.texto_feliz_cumpleannos),
-            from = stringResource(R.string.texto_asignacion)
+            de = stringResource(R.string.texto_asignacion)
         )
     }
 }
